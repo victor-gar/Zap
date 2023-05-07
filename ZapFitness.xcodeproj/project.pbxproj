@@ -11,6 +11,7 @@
 		16CB407B2A07E62E00650EEA /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16CB407A2A07E62E00650EEA /* ContentView.swift */; };
 		16CB407D2A07E63000650EEA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 16CB407C2A07E63000650EEA /* Assets.xcassets */; };
 		16CB40802A07E63000650EEA /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 16CB407F2A07E63000650EEA /* Preview Assets.xcassets */; };
+		16CB40872A07EFBE00650EEA /* CustomTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16CB40862A07EFBD00650EEA /* CustomTabBar.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +20,7 @@
 		16CB407A2A07E62E00650EEA /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		16CB407C2A07E63000650EEA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		16CB407F2A07E63000650EEA /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		16CB40862A07EFBD00650EEA /* CustomTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabBar.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,6 +53,7 @@
 		16CB40772A07E62E00650EEA /* ZapFitness */ = {
 			isa = PBXGroup;
 			children = (
+				16CB40882A07EFC800650EEA /* TabBar */,
 				16CB40782A07E62E00650EEA /* ZapFitnessApp.swift */,
 				16CB407A2A07E62E00650EEA /* ContentView.swift */,
 				16CB407C2A07E63000650EEA /* Assets.xcassets */,
@@ -65,6 +68,14 @@
 				16CB407F2A07E63000650EEA /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		16CB40882A07EFC800650EEA /* TabBar */ = {
+			isa = PBXGroup;
+			children = (
+				16CB40862A07EFBD00650EEA /* CustomTabBar.swift */,
+			);
+			path = TabBar;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -138,6 +149,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				16CB407B2A07E62E00650EEA /* ContentView.swift in Sources */,
+				16CB40872A07EFBE00650EEA /* CustomTabBar.swift in Sources */,
 				16CB40792A07E62E00650EEA /* ZapFitnessApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
