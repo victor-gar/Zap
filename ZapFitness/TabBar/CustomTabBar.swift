@@ -12,15 +12,17 @@ struct CustomTabBar: View {
     
     var body: some View {
         ZStack {
+           
             VStack(spacing: 0) {
                 Spacer()
                 
                 if selectedTab == 0 {
-                    Text("Content for Tab 1")
-                        .foregroundColor(.white)
+                    MainScreen()
                 } else if selectedTab == 1 {
                     Text("Content for Tab 2")
                         .foregroundColor(.white)
+                        .font(.custom("ArtegraSans-ExtraLightItalic", size: 36))
+
                 }else if selectedTab == 2 {
                     Text("Content for Tab 3")
                         .foregroundColor(.white)
@@ -29,6 +31,7 @@ struct CustomTabBar: View {
                         .foregroundColor(.white)
                 }
                 Spacer()
+
                 HStack {
                     TabButton(imageName: "circle.grid.2x2.fill", isSelected: selectedTab == 0) {
                         selectedTab = 0
@@ -42,13 +45,25 @@ struct CustomTabBar: View {
                     TabButton(imageName: "baseball.diamond.bases", isSelected: selectedTab == 3) {
                         selectedTab = 3
                     }
+                   
                 }
+                
                 .padding()
                 .background(Color.white)
                 .clipShape(RoundedRectangle(cornerRadius: 30))
             }
-            .background(Color.black)
+            .background(Color.gray.opacity(0.2))
             .edgesIgnoringSafeArea(.all)
+            VStack {
+                           Spacer()
+                           
+                           RunButton(imageName: "figure.run", isSelected: selectedTab == 5) {
+                               selectedTab = 5
+                           }
+                           .padding(.bottom, 30)
+                       }
+                   
+           
         }
     }
 }
@@ -63,11 +78,57 @@ struct TabButton: View {
             VStack(spacing: 5) {
                 Image(systemName: imageName)
                     .font(.system(size: 18))
-                    .foregroundColor(isSelected ? .blue : .gray)
+                    .foregroundColor(isSelected ? .orange : .gray)
             }
             .padding(.top, 10)
             .padding(.bottom, 30)
             .frame(maxWidth: .infinity)
         }
+    }
+}
+
+
+struct RunButton: View {
+    var imageName: String
+    var isSelected: Bool
+    var action: () -> Void
+    @State private var isAnimating = false
+
+    var body: some View {
+        Button(action: action) {
+            VStack(spacing: 10) {
+                Image(systemName: imageName)
+                    .font(.system(size: 47))
+                    .frame(width: 60, height: 60) // Размер кнопки
+                    .foregroundColor(isSelected ? .white : .white.opacity(0.8))
+                    .padding(10) // Отступ от картинки
+                    .background(
+                        ZStack {
+                            Circle()
+                                .stroke(Color.orange.opacity(0.5), lineWidth: 7) // Ширина рамки 7
+                            Circle()
+                                .trim(from: 0, to: isAnimating ? 1 : 0)
+                                .stroke(
+                                    AngularGradient(gradient: Gradient(colors: [.pink, .red]), center: .center),
+                                    style: StrokeStyle(lineWidth: 7, lineCap: .round)
+                                )
+                                .rotationEffect(Angle(degrees: isAnimating ? 360 : 0))
+                              
+                                .animation(Animation.easeInOut(duration: 2.0).repeatForever(), value: isAnimating)
+                        }
+                    )
+                   
+            }
+        }
+        .background(Color.orange)
+
+        .clipShape(Circle())
+        .onAppear {
+            withAnimation(.linear(duration: 2).repeatForever(autoreverses: true)) {
+                isAnimating = true
+            }
+        }
+        .shadow(color: .gray.opacity(0.5), radius: 16, x: 0, y: 2)
+
     }
 }
