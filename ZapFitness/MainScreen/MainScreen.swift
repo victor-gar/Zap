@@ -7,15 +7,24 @@
 
 import SwiftUI
 
+
 struct MainScreen: View {
  
     var body: some View {
-        ScrollView(.vertical){
-            VStack{
+        ScrollView(.vertical,showsIndicators: false){
+            VStack(alignment: .center, spacing: 10){
+                ProfileMainView()
+                    .padding(.top,42)
                 TotalAll()
-                    .padding(.top,50)
+                    .padding(.top,65)
                 Challenge()
                     .padding(.top, 65)
+                ScrollView(.horizontal, showsIndicators: false){
+                    HStack(spacing: 0){
+                        ChartSteps()
+                        ChartSteps()
+                    }
+                }
             }
         }
     }

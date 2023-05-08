@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		16ABB0432A082B29002B9076 /* Challenge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16ABB0422A082B29002B9076 /* Challenge.swift */; };
 		16ABB0462A082EB1002B9076 /* MainScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16ABB0452A082EB1002B9076 /* MainScreen.swift */; };
+		16ABB0492A089D05002B9076 /* ChartSteps.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16ABB0482A089D05002B9076 /* ChartSteps.swift */; };
+		16ABB04B2A08FE7E002B9076 /* ProfileMainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16ABB04A2A08FE7E002B9076 /* ProfileMainView.swift */; };
 		16CB40792A07E62E00650EEA /* ZapFitnessApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16CB40782A07E62E00650EEA /* ZapFitnessApp.swift */; };
 		16CB407B2A07E62E00650EEA /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16CB407A2A07E62E00650EEA /* ContentView.swift */; };
 		16CB407D2A07E63000650EEA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 16CB407C2A07E63000650EEA /* Assets.xcassets */; };
@@ -23,6 +25,8 @@
 /* Begin PBXFileReference section */
 		16ABB0422A082B29002B9076 /* Challenge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Challenge.swift; sourceTree = "<group>"; };
 		16ABB0452A082EB1002B9076 /* MainScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreen.swift; sourceTree = "<group>"; };
+		16ABB0482A089D05002B9076 /* ChartSteps.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartSteps.swift; sourceTree = "<group>"; };
+		16ABB04A2A08FE7E002B9076 /* ProfileMainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileMainView.swift; sourceTree = "<group>"; };
 		16CB40752A07E62E00650EEA /* ZapFitness.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ZapFitness.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		16CB40782A07E62E00650EEA /* ZapFitnessApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZapFitnessApp.swift; sourceTree = "<group>"; };
 		16CB407A2A07E62E00650EEA /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -47,6 +51,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		16ABB0472A089CE7002B9076 /* Charts */ = {
+			isa = PBXGroup;
+			children = (
+				16ABB0482A089D05002B9076 /* ChartSteps.swift */,
+			);
+			path = Charts;
+			sourceTree = "<group>";
+		};
 		16CB406C2A07E62E00650EEA = {
 			isa = PBXGroup;
 			children = (
@@ -107,9 +119,11 @@
 		16CB409C2A07F8FE00650EEA /* MainScreen */ = {
 			isa = PBXGroup;
 			children = (
+				16ABB0472A089CE7002B9076 /* Charts */,
 				16CB409D2A07F93200650EEA /* TotalAll.swift */,
 				16ABB0422A082B29002B9076 /* Challenge.swift */,
 				16ABB0452A082EB1002B9076 /* MainScreen.swift */,
+				16ABB04A2A08FE7E002B9076 /* ProfileMainView.swift */,
 			);
 			path = MainScreen;
 			sourceTree = "<group>";
@@ -188,8 +202,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				16ABB0462A082EB1002B9076 /* MainScreen.swift in Sources */,
+				16ABB04B2A08FE7E002B9076 /* ProfileMainView.swift in Sources */,
 				16CB407B2A07E62E00650EEA /* ContentView.swift in Sources */,
 				16CB40872A07EFBE00650EEA /* CustomTabBar.swift in Sources */,
+				16ABB0492A089D05002B9076 /* ChartSteps.swift in Sources */,
 				16CB409E2A07F93200650EEA /* TotalAll.swift in Sources */,
 				16CB40792A07E62E00650EEA /* ZapFitnessApp.swift in Sources */,
 				16ABB0432A082B29002B9076 /* Challenge.swift in Sources */,

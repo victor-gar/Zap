@@ -12,7 +12,6 @@ struct CustomTabBar: View {
     
     var body: some View {
         ZStack {
-           
             VStack(spacing: 0) {
                 Spacer()
                 
@@ -45,7 +44,6 @@ struct CustomTabBar: View {
                     TabButton(imageName: "baseball.diamond.bases", isSelected: selectedTab == 3) {
                         selectedTab = 3
                     }
-                   
                 }
                 
                 .padding()
@@ -62,8 +60,6 @@ struct CustomTabBar: View {
                            }
                            .padding(.bottom, 30)
                        }
-                   
-           
         }
     }
 }
