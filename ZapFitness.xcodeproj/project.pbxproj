@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		169303682A1285B200CB6077 /* RegistrationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 169303672A1285B200CB6077 /* RegistrationView.swift */; };
 		16ABB0432A082B29002B9076 /* Challenge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16ABB0422A082B29002B9076 /* Challenge.swift */; };
 		16ABB0462A082EB1002B9076 /* MainScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16ABB0452A082EB1002B9076 /* MainScreen.swift */; };
 		16ABB0492A089D05002B9076 /* ChartSteps.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16ABB0482A089D05002B9076 /* ChartSteps.swift */; };
@@ -24,6 +25,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		169303672A1285B200CB6077 /* RegistrationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationView.swift; sourceTree = "<group>"; };
 		16ABB0422A082B29002B9076 /* Challenge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Challenge.swift; sourceTree = "<group>"; };
 		16ABB0452A082EB1002B9076 /* MainScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreen.swift; sourceTree = "<group>"; };
 		16ABB0482A089D05002B9076 /* ChartSteps.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartSteps.swift; sourceTree = "<group>"; };
@@ -53,6 +55,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		169303662A12858700CB6077 /* RegistrationScreen */ = {
+			isa = PBXGroup;
+			children = (
+				169303672A1285B200CB6077 /* RegistrationView.swift */,
+			);
+			path = RegistrationScreen;
+			sourceTree = "<group>";
+		};
 		16ABB0472A089CE7002B9076 /* Charts */ = {
 			isa = PBXGroup;
 			children = (
@@ -80,6 +90,7 @@
 		16CB40772A07E62E00650EEA /* ZapFitness */ = {
 			isa = PBXGroup;
 			children = (
+				169303662A12858700CB6077 /* RegistrationScreen */,
 				16CB409C2A07F8FE00650EEA /* MainScreen */,
 				16CB408B2A07F40000650EEA /* Info.plist */,
 				16CB408C2A07F51800650EEA /* Fonts */,
@@ -213,6 +224,7 @@
 				16CB40792A07E62E00650EEA /* ZapFitnessApp.swift in Sources */,
 				16ABB04D2A090517002B9076 /* InfoView.swift in Sources */,
 				16ABB0432A082B29002B9076 /* Challenge.swift in Sources */,
+				169303682A1285B200CB6077 /* RegistrationView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

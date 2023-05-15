@@ -182,7 +182,7 @@ struct Content: View {
 
                     Button(action: {
                         currentWindow += 1
-                        if currentWindow >= 2{
+                        if currentWindow > 2{
                             self.showForm = true
                         }
                     })
@@ -201,7 +201,7 @@ struct Content: View {
                         
                     }
                     .padding()
-                    .disabled(currentWindow >= 2)
+                    .disabled(currentWindow > 2)
                     
                     Text("*Для дальнейшего пользования программой нужно заполнить ваши данные")
                     .font(.subheadline)
@@ -294,8 +294,6 @@ struct WeightSelectionView: View {
                         .foregroundColor(.orange)
                         .tag(weight)
                     Divider()
-
-
                 }
             }
             .pickerStyle(.inline)
