@@ -96,7 +96,7 @@ struct RunButton: View {
                 Image(systemName: imageName)
                     .font(.system(size: 47))
                     .frame(width: 60, height: 60) // Размер кнопки
-                    .foregroundColor(isSelected ? .white : .white.opacity(0.8))
+                    .foregroundColor(isSelected ? .white : .white)
                     .padding(10) // Отступ от картинки
                     .background(
                         ZStack {
@@ -128,3 +128,7 @@ struct RunButton: View {
 
     }
 }
+
+
+
+

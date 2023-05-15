@@ -11,6 +11,7 @@
 		16ABB0462A082EB1002B9076 /* MainScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16ABB0452A082EB1002B9076 /* MainScreen.swift */; };
 		16ABB0492A089D05002B9076 /* ChartSteps.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16ABB0482A089D05002B9076 /* ChartSteps.swift */; };
 		16ABB04B2A08FE7E002B9076 /* ProfileMainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16ABB04A2A08FE7E002B9076 /* ProfileMainView.swift */; };
+		16ABB04D2A090517002B9076 /* InfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16ABB04C2A090517002B9076 /* InfoView.swift */; };
 		16CB40792A07E62E00650EEA /* ZapFitnessApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16CB40782A07E62E00650EEA /* ZapFitnessApp.swift */; };
 		16CB407B2A07E62E00650EEA /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16CB407A2A07E62E00650EEA /* ContentView.swift */; };
 		16CB407D2A07E63000650EEA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 16CB407C2A07E63000650EEA /* Assets.xcassets */; };
@@ -27,6 +28,7 @@
 		16ABB0452A082EB1002B9076 /* MainScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreen.swift; sourceTree = "<group>"; };
 		16ABB0482A089D05002B9076 /* ChartSteps.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartSteps.swift; sourceTree = "<group>"; };
 		16ABB04A2A08FE7E002B9076 /* ProfileMainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileMainView.swift; sourceTree = "<group>"; };
+		16ABB04C2A090517002B9076 /* InfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoView.swift; sourceTree = "<group>"; };
 		16CB40752A07E62E00650EEA /* ZapFitness.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ZapFitness.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		16CB40782A07E62E00650EEA /* ZapFitnessApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZapFitnessApp.swift; sourceTree = "<group>"; };
 		16CB407A2A07E62E00650EEA /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -86,6 +88,7 @@
 				16CB407A2A07E62E00650EEA /* ContentView.swift */,
 				16CB407C2A07E63000650EEA /* Assets.xcassets */,
 				16CB407E2A07E63000650EEA /* Preview Content */,
+				16ABB04C2A090517002B9076 /* InfoView.swift */,
 			);
 			path = ZapFitness;
 			sourceTree = "<group>";
@@ -208,6 +211,7 @@
 				16ABB0492A089D05002B9076 /* ChartSteps.swift in Sources */,
 				16CB409E2A07F93200650EEA /* TotalAll.swift in Sources */,
 				16CB40792A07E62E00650EEA /* ZapFitnessApp.swift in Sources */,
+				16ABB04D2A090517002B9076 /* InfoView.swift in Sources */,
 				16ABB0432A082B29002B9076 /* Challenge.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
