@@ -10,9 +10,23 @@ import SwiftUI
 struct RegistrationView: View {
     
     @State private var showForm = false
-    @State private var password: String = ""
-    @State private var login: String = ""
+        @State private var password: String = ""
+        @State private var login: String = ""
+        @State private var email: String = ""
+        @State private var repeatPassword: String = ""
+        @State private var showAdditionalFields = false
+        @State private var isResettingPassword = false
     
+    var welcomeText: String {
+           return isResettingPassword ? "Reset Password" : "Welcome Back!"
+       }
+       
+       var forgetPasswordText: String {
+           return isResettingPassword ? "Reset Password" : "Forget password?"
+       }
+        var hi: String {
+            return isResettingPassword ? "" : "Hi,"
+     }
     
     
     var body: some View {
@@ -20,31 +34,29 @@ struct RegistrationView: View {
             
             
             LinearGradient(
-                gradient: Gradient(colors: [.purple , .black]),
+                gradient: Gradient(colors: [
+                    Color(red: 0.3353247729, green: 0.04799462545, blue: 0.3469717843),
+                    Color(red: 0.06274510175, green: 0, blue: 0.0921568662)]),
                 startPoint: .top,
                 endPoint: .bottom
             )
+            
             .edgesIgnoringSafeArea(.all)
             
             
-            
-            
-            
-            
-            
-            
             VStack {
+                
                 Spacer()
                 VStack(alignment: .leading){
                     
-                    Text("Hi,")
+                    Text(hi)
                         .font(.subheadline)
                         .fontWeight(.bold)
                         .textCase(.uppercase)
                         .foregroundColor(.white)
                         .padding(.leading, 30)
                     
-                    Text("Welcome Back!")
+                    Text(welcomeText)
                         .font(.custom("NoizeSportFreeVertion-Regular", size: 25))
                         .textCase(.uppercase)
                         .foregroundColor(.white)
@@ -52,20 +64,15 @@ struct RegistrationView: View {
                     VStack(alignment: .trailing){
                         
                         VStack(alignment: .leading){
-                            if login.isEmpty {
-                                Text("Введите логин и пароль")
-                                    .font(.footnote)
-                                    .fontWeight(.bold)
-                                    .foregroundColor(.white)
-                                    .padding(.leading, 30)
-                                    .padding(.top, 20)
-                                
-                                
-                            }
                             
                             TextField("", text: $login)
+                                .placeholder(when: login.isEmpty) {
+                                    Text("Введите логин").foregroundColor(.gray)
+                                }
+                                .font(.subheadline)
+                                .fontWeight(.regular)
                                 .textFieldStyle(.automatic)
-                                .padding(5)
+                                .padding(10)
                                 .background(Color.clear)
                                 .overlay(
                                     RoundedRectangle(cornerRadius: 30)
@@ -75,73 +82,122 @@ struct RegistrationView: View {
                                 .foregroundColor(login.isEmpty ? .gray : .white)
                             
                             SecureField("", text: $password)
+                                .placeholder(when: password.isEmpty) {
+                                    Text("Введите пароль").foregroundColor(.gray)
+                                }
+                                .font(.subheadline)
+                                .fontWeight(.regular)
                                 .textFieldStyle(.automatic)
-                                .padding(5)
+                                .padding(10)
                                 .background(Color.clear)
                                 .overlay(
                                     RoundedRectangle(cornerRadius: 30)
                                         .stroke(Color.white, lineWidth: 1.5)
                                 )
                                 .padding(.horizontal, 20)
-                                .foregroundColor(.white)
+                                .foregroundColor(password.isEmpty ? .gray : .white)
                             
-                        }
-                        
-                        
-                        
-                        
-                        VStack(alignment: .trailing){
+                            if showAdditionalFields {
+                
+                                
+                                SecureField("", text: $repeatPassword)
+                                    .placeholder(when: repeatPassword.isEmpty) {
+                                        Text("Повторите пароль").foregroundColor(.gray)
+                                    }
+                                    .font(.subheadline)
+                                    .fontWeight(.regular)
+                                    .textFieldStyle(.automatic)
+                                    .padding(10)
+                                    .background(Color.clear)
+                                    .overlay(
+                                        RoundedRectangle(cornerRadius: 30)
+                                            .stroke(Color.white, lineWidth: 1.5)
+                                    )
+                                    .padding(.horizontal, 20)
+                                    .foregroundColor(repeatPassword.isEmpty ? .gray : .white)
+                                
+                                TextField("", text: $email)
+                                    .placeholder(when: email.isEmpty) {
+                                        Text("Введите почту").foregroundColor(.gray)
+                                    }
+                                    .font(.subheadline)
+                                    .fontWeight(.regular)
+                                    .textFieldStyle(.automatic)
+                                    .padding(10)
+                                    .background(Color.clear)
+                                    .overlay(
+                                        RoundedRectangle(cornerRadius: 30)
+                                            .stroke(Color.white, lineWidth: 1.5)
+                                    )
+                                    .padding(.horizontal, 20)
+                                    .foregroundColor(email.isEmpty ? .gray : .white)
+                            }
+                            }
                             
-                            Button("Sign up") {}
+                            VStack(alignment: .trailing){
+                                
+                                Button(forgetPasswordText) {
+                                    showAdditionalFields.toggle()
+                                    isResettingPassword.toggle()
+                                }
                                 .font(.footnote)
                                 .fontWeight(.bold)
-                                .foregroundColor(.white)
+                                .foregroundColor(.gray)
                                 .padding(.trailing, 20)
-                                .padding(.top, 15)
+                                .padding(.top, 10)
                                 .padding(.bottom, 55)
-                            
-                            
+                            }
                         }
                     }
                     
+                    Button("Get Started") {}
+                        .font(.custom("NoizeSportFreeVertion-Regular", size: 20))
+                        .foregroundColor(.white)
+                        .frame(width: UIScreen.main.bounds.width - 50)
+                        .padding(.horizontal, 10)
+                        .padding(.vertical, 10)
+                        .textCase(.uppercase)
+                        .background(Color.orange)
+                        .cornerRadius(30)
+                        .padding(.bottom, 10)
+                    HStack{
+                        Text("Don't have an acaccount ?")
+                            .font(.footnote)
+                            .font(.footnote)
+                            .lineLimit(4)
+                            .foregroundColor(.gray)
+                            .transition(.opacity)
+                        Button("Sign up") {}
+                            .font(.footnote)
+                            .fontWeight(.bold)
+                            .foregroundColor(.white)
+                    }
+                    .padding(.bottom, 25)
+                    
                     
                 }
-                
-                
-                
-                Button("Get Started") {}
-                    .font(.custom("NoizeSportFreeVertion-Regular", size: 20))
-                    .foregroundColor(.white)
-                    .frame(width: UIScreen.main.bounds.width - 50)
-                    .padding(.horizontal, 10)
-                    .padding(.vertical, 10)
-                    .textCase(.uppercase)
-                    .background(Color.orange)
-                    .cornerRadius(30)
-                    .padding(.bottom, 10)
-                HStack{
-                    Text("Don't have an acaccount ?")
-                        .font(.footnote)
-                        .lineLimit(4)
-                        .foregroundColor(.white)
-                        .transition(.opacity)
-                    Button("Sign up") {}
-                        .font(.footnote)
-                        .fontWeight(.bold)
-                        .foregroundColor(.white)
-                }
-                .padding(.bottom, 25)
-                
-                
             }
+            
         }
         
-    }
     
 }
-
-struct RegistrationView_Previews: PreviewProvider {
-    static var previews: some View {
-        RegistrationView()
+    struct RegistrationView_Previews: PreviewProvider {
+        static var previews: some View {
+            RegistrationView()
+        }
     }
-}
+    
+    
+    extension View {
+        func placeholder<Content: View>(
+            when shouldShow: Bool,
+            alignment: Alignment = .leading,
+            @ViewBuilder placeholder: () -> Content) -> some View {
+                
+                ZStack(alignment: alignment) {
+                    placeholder().opacity(shouldShow ? 1 : 0)
+                    self
+                }
+            }
+    }
