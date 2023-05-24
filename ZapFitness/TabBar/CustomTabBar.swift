@@ -6,31 +6,40 @@
 //
 
 import SwiftUI
+import UIKit
+
+struct CustomTabBar_Previews: PreviewProvider {
+    static var previews: some View {
+        CustomTabBar()
+    }
+}
+
 
 struct CustomTabBar: View {
     @State private var selectedTab = 0
     
     var body: some View {
         ZStack {
-            VStack(spacing: 0) {
-                Spacer()
-                
+            VStack(spacing: 40) {
                 if selectedTab == 0 {
                     MainScreen()
                 } else if selectedTab == 1 {
                     Text("Content for Tab 2")
                         .foregroundColor(.white)
                         .font(.custom("ArtegraSans-ExtraLightItalic", size: 36))
-
-                }else if selectedTab == 2 {
+                } else if selectedTab == 2 {
                     Text("Content for Tab 3")
                         .foregroundColor(.white)
                 } else {
                     Text("Content for Tab 4")
                         .foregroundColor(.white)
                 }
+            }
+            .background(Color.clear.opacity(0.2))
+            
+            
+            VStack {
                 Spacer()
-
                 HStack {
                     TabButton(imageName: "circle.grid.2x2.fill", isSelected: selectedTab == 0) {
                         selectedTab = 0
@@ -45,22 +54,34 @@ struct CustomTabBar: View {
                         selectedTab = 3
                     }
                 }
-                
                 .padding()
-                .background(Color.white)
-                .clipShape(RoundedRectangle(cornerRadius: 30))
+                .background(
+                    VisualEffectView(effect: UIBlurEffect(style: .systemThickMaterialDark))
+                        .cornerRadius(45)
+                )
             }
-            .background(Color.gray.opacity(0.2))
-            .edgesIgnoringSafeArea(.all)
-            VStack {
-                           Spacer()
-                           
-                           RunButton(imageName: "figure.run", isSelected: selectedTab == 5) {
-                               selectedTab = 5
-                           }
-                           .padding(.bottom, 30)
-                       }
+            VStack{
+                Spacer()
+                HStack{
+                    RunButton(imageName: "figure.run", isSelected: selectedTab == 5) {
+                        selectedTab = 5
+                    }
+                }
+                .padding(.bottom, 60)
+            }
         }
+        .ignoresSafeArea()
+    }
+}
+struct VisualEffectView: UIViewRepresentable {
+    let effect: UIVisualEffect
+    
+    func makeUIView(context: Context) -> UIVisualEffectView {
+        UIVisualEffectView(effect: effect)
+    }
+    
+    func updateUIView(_ uiView: UIVisualEffectView, context: Context) {
+        uiView.effect = effect
     }
 }
 
@@ -89,7 +110,7 @@ struct RunButton: View {
     var isSelected: Bool
     var action: () -> Void
     @State private var isAnimating = false
-
+    
     var body: some View {
         Button(action: action) {
             VStack(spacing: 10) {
@@ -109,15 +130,15 @@ struct RunButton: View {
                                     style: StrokeStyle(lineWidth: 7, lineCap: .round)
                                 )
                                 .rotationEffect(Angle(degrees: isAnimating ? 360 : 0))
-                              
+                            
                                 .animation(Animation.easeInOut(duration: 2.0).repeatForever(), value: isAnimating)
                         }
                     )
-                   
+                
             }
         }
         .background(Color.orange)
-
+        
         .clipShape(Circle())
         .onAppear {
             withAnimation(.linear(duration: 2).repeatForever(autoreverses: true)) {
@@ -125,7 +146,7 @@ struct RunButton: View {
             }
         }
         .shadow(color: .gray.opacity(0.5), radius: 16, x: 0, y: 2)
-
+        
     }
 }
 

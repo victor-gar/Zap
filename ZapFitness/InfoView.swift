@@ -7,10 +7,17 @@
 
 import SwiftUI
 
+struct InfoView_Previews: PreviewProvider {
+    static var previews: some View {
+        InfoView()
+    }
+}
+
 struct InfoView: View {
     @State private var currentIndex = 0
     @State private var isAnimating = false
     @State private var showForm = false
+
     
     let images = ["info1", "info2", "info3"]
     let texts = [
@@ -29,67 +36,92 @@ struct InfoView: View {
     
     var body: some View {
         ZStack {
-          
-
-            Image(images[currentIndex])
-                .resizable()
-                .scaledToFill()
-                .overlay(
-                    LinearGradient(
-                        gradient: Gradient(colors: [.clear, .black]),
-                        startPoint: .top,
-                        endPoint: .bottom
-                    )
-                )
-                .edgesIgnoringSafeArea(.all)
-            AnimatedBackgroundView()
-                .edgesIgnoringSafeArea(.all)
-            
-            
-            
-            VStack {
+            VStack (alignment: .leading) {
+                
+                Button(action: {
+                    UserDefaults.standard.set(false, forKey: "status")
+                                   NotificationCenter.default.post(name: NSNotification.Name("statusChange"), object: nil)
+                }) {
+                    HStack {
+                        Image(systemName: "chevron.left")
+                            .foregroundColor(.white)
+                    }
+                    .frame(width: 30, height: 30)
+                    .background(Color.black.opacity(0.2))
+                    .clipShape(Circle())
+                }
+                .padding(.leading, 12)
                 Spacer()
+                VStack{
                     Image("zap_logo")
                         .resizable()
                         .scaledToFill()
                         .frame(width: 6, height: 23)
                         .animation(.easeInOut(duration: 0.3))
-                        .colorInvert()
                     Text(texts[currentIndex])
-                        .font(.title2)
+                        .font(.title3)
+                        .fontWeight(.light)
                         .lineLimit(4)
-                        .foregroundColor(.white)
+                        .foregroundColor(.black)
                         .frame(width: UIScreen.main.bounds.width - 30)
                         .padding(10)
-                        .transition(.opacity)
-                ImageSelectionControl(selectedIndex: currentIndex, count: images.count)
-                    .padding(.top, 20)
-                    .padding(.bottom, 20)
-                Button(buttonText) {
-                    if currentIndex == images.count - 1 {
-                        self.showForm = true
-                    } else {
-                        withAnimation {
-                            self.animateImage()
-                        }
-                    }
-                }
-                .font(.custom("NoizeSportFreeVertion-Regular", size: 20))
-                .foregroundColor(.black)
-                .frame(width: UIScreen.main.bounds.width - 50)
-                .padding(.horizontal, 10)
-                .padding(.vertical, 10)
-                .textCase(.uppercase)
-                .background(Color.white)
-                .cornerRadius(30)
-                .padding(.bottom, 45)
-                .transition(.opacity)
+                        .padding(.bottom, 25)
 
+                        .transition(.opacity)
+                    VStack{
+                        Button(buttonText) {
+                            if currentIndex == images.count - 1 {
+                                self.showForm = true
+                            } else {
+                                withAnimation {
+                                    self.animateImage()
+                                }
+                            }
+                        }
+                        .font(.custom("NoizeSportFreeVertion-Regular", size: 20))
+                        .foregroundColor(.black)
+                        .frame(width: UIScreen.main.bounds.width - 50)
+                        .padding(.horizontal, 10)
+                        .padding(.vertical, 10)
+                        .textCase(.uppercase)
+                        .background(.white.gradient)
+                        .cornerRadius(30)
+                        .padding(.bottom, 45)
+                        .transition(.opacity)
+                    }
+                    .shadow(color: .purple.opacity(0.5), radius: 42)
+                }
             }
         }
+        .background{
+            ZStack{
+                Circle()
+                    .fill(Color.purple.gradient.opacity(0.15))
+                    .scaleEffect(1.7)
+                    .offset(x: 0, y: -250)
+                
+                VStack{
+                    Circle()
+                        .fill(Color.purple.gradient.opacity(0.9))
+                        .scaleEffect(1.6)
+                        .offset(x: 0, y: -250)
+                }
+                Image(images[currentIndex])
+                    .scaleEffect(2.1)
+                    .offset(x: 0, y: -110)
+                    .colorInvert()
+                    .animation(.easeInOut(duration: 0.3))
+                
+              
+                
+            }
+            .background(.white)
+            .ignoresSafeArea()
+        }
+
         .animation(.easeInOut(duration: 0.3), value: currentIndex)
         .fullScreenCover(isPresented: $showForm) {
-                  withAnimation(.easeInOut(duration: 0.3)) { // Добавлен withAnimation для плавного открытия
+                  withAnimation(.easeInOut(duration: 0.3)) {
                       CustomTabBar()
                   }
               }
@@ -102,23 +134,6 @@ struct InfoView: View {
             withAnimation {
                 self.currentIndex += 1
                 self.isAnimating = false
-            }
-        }
-    }
-}
-
-
-struct ImageSelectionControl: View {
-    let selectedIndex: Int
-    let count: Int
-    
-    var body: some View {
-        HStack {
-            ForEach(0..<count) { index in
-                Circle()
-                    .fill(index == selectedIndex ? Color.orange : Color.gray)
-                    .frame(width: 10, height: 10)
-                    .padding(.horizontal, 5)
             }
         }
     }

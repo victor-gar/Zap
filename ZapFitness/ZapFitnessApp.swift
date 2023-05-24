@@ -7,11 +7,10 @@
 
 import SwiftUI
 
-@main
 struct ZapFitnessApp: App {
     var body: some Scene {
         WindowGroup {
-            Content()
+            ContentView()
         }
     }
 }

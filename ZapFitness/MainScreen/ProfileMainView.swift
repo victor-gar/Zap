@@ -10,6 +10,7 @@ import SwiftUI
 struct ProfileMainView: View {
  
     var body: some View {
+        
         HStack{
             VStack(alignment: .leading, spacing: 0){
                 Text("GOOD MORNING,")
@@ -145,19 +146,6 @@ struct Content: View {
 
     var body: some View {
             ZStack {
-                Image("info2")
-                    .resizable()
-                    .scaledToFill()
-                    .overlay(
-                        LinearGradient(
-                            gradient: Gradient(colors: [.black.opacity(0.8), .black.opacity(0.8)]),
-                            startPoint: .top,
-                            endPoint: .bottom
-                        )
-                    )
-                    .edgesIgnoringSafeArea(.all)
-                AnimatedBackgroundView()
-                    .edgesIgnoringSafeArea(.all)
                 VStack {
                     
                     
@@ -179,7 +167,6 @@ struct Content: View {
                                             .foregroundColor(.white)
                                             .border(.orange, width: 1)
                                             .frame(width: UIScreen.main.bounds.width - 40)
-
                     Button(action: {
                         currentWindow += 1
                         if currentWindow > 2{
@@ -187,7 +174,6 @@ struct Content: View {
                         }
                     })
                     {
-                        
                         Text("Next")
                             .font(.custom("NoizeSportFreeVertion-Regular", size: 20))
                             .foregroundColor(.black)
@@ -198,7 +184,6 @@ struct Content: View {
                             .background(Color.white)
                             .cornerRadius(30)
                             .transition(.opacity)
-                        
                     }
                     .padding()
                     .disabled(currentWindow > 2)
@@ -209,15 +194,43 @@ struct Content: View {
                     .foregroundColor(.white)
                     .frame(width: UIScreen.main.bounds.width - 30)
                                     }                          }
-        
+            .background{
+                ZStack{
+                    VStack{
+                        
+                        Circle()
+                            .fill(Color.pink)
+                            .scaleEffect(0.6)
+                            .offset(x:60 )
+                            .blur(radius: 110)
+                            .animation(.easeInOut(duration: 0.3))
+                        Circle()
+                            .fill(Color.yellow)
+                            .scaleEffect(0.6, anchor: .leading)
+                            .offset(x: -12)
+                            .blur(radius: 110)
+                            .animation(.easeInOut(duration: 0.3))
+                    }
+                    Rectangle()
+                        .fill(.ultraThinMaterial)
+                }
+                .ignoresSafeArea()
+            }
+            .preferredColorScheme(.dark)
             .fullScreenCover(isPresented: $showForm) {
                       withAnimation(.easeInOut(duration: 0.3)) {
                           InfoView()
                       }
                   }
         }
-    
 }
+
+struct Content_Previews: PreviewProvider {
+    static var previews: some View {
+        Content()
+    }
+}
+
 
 struct AgeSelectionView: View {
     @Binding var age: Int?
@@ -229,22 +242,24 @@ struct AgeSelectionView: View {
                 .fontWeight(.light)
                 .foregroundColor(.white)
                 .padding()
-
             Picker("Age", selection: $age) {
-                ForEach(6...80, id: \.self) { age in
+                ForEach(6...80, id: \.self) { ageS in
                     Divider()
-                    Text("\(age)")
+                    Text("\(ageS)")
                         .font(.custom("NoizeSportFreeVertion-Regular", size: 100))
                         .foregroundColor(.orange)
-                        .tag(age)
+                        .tag(ageS)
                     Divider()
 
 
                 }
             }
-            .pickerStyle(.wheel)
+            .pickerStyle(WheelPickerStyle())
+            .accentColor(.blue)
             .padding(.horizontal, 10)
+
         }
+
     }
 }
 
