@@ -34,10 +34,6 @@ struct RegistrationView: View {
                             self.status = status
                         }
                 }
-        
-        
-        
-        
     }
     
     
@@ -53,9 +49,6 @@ struct SignIn: View {
         @State var show = false
         @State private var alert = false
         @State private var message = ""
-        
-        
-        
         
         var body: some View {
             ZStack{
@@ -389,12 +382,11 @@ struct SignUp: View {
         
     }
 
-
-struct SignInView_Previews: PreviewProvider {
-    static var previews: some View {
-        SignIn()
-    }
-}
+//struct SignInView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        SignIn()
+//    }
+//}
 
 func signWithEmail(email: String, password: String, comletion: @escaping(Bool, String) -> Void) {
     
@@ -425,18 +417,7 @@ struct RegistrationView_Previews: PreviewProvider {
     }
 }
 
-extension View {
-    func placeholder<Content: View>(
-        when shouldShow: Bool,
-        alignment: Alignment = .leading,
-        @ViewBuilder placeholder: () -> Content) -> some View {
-            
-            ZStack(alignment: alignment) {
-                placeholder().opacity(shouldShow ? 1 : 0)
-                self
-            }
-        }
-}
+
 
 
 

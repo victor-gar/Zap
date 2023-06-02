@@ -138,7 +138,6 @@ struct RunButton: View {
             }
         }
         .background(Color.orange)
-        
         .clipShape(Circle())
         .onAppear {
             withAnimation(.linear(duration: 2).repeatForever(autoreverses: true)) {

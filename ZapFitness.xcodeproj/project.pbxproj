@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		16024D862A2A489B00DC8FD5 /* Extension + View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16024D852A2A489B00DC8FD5 /* Extension + View.swift */; };
+		16024D882A2A4A3200DC8FD5 /* UserInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16024D872A2A4A3200DC8FD5 /* UserInfoView.swift */; };
+		16024D8C2A2A4AC900DC8FD5 /* AgeSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16024D8B2A2A4AC900DC8FD5 /* AgeSelectionView.swift */; };
+		16024D8E2A2A4AE300DC8FD5 /* HeightSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16024D8D2A2A4AE300DC8FD5 /* HeightSelectionView.swift */; };
+		16024D902A2A4AF500DC8FD5 /* WeightSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16024D8F2A2A4AF500DC8FD5 /* WeightSelectionView.swift */; };
 		166C2FDE2A17612E00969465 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 166C2FDD2A17612E00969465 /* FirebaseAnalytics */; };
 		166C2FE02A17612E00969465 /* FirebaseAnalyticsOnDeviceConversion in Frameworks */ = {isa = PBXBuildFile; productRef = 166C2FDF2A17612E00969465 /* FirebaseAnalyticsOnDeviceConversion */; };
 		166C2FE22A17612E00969465 /* FirebaseAnalyticsSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 166C2FE12A17612E00969465 /* FirebaseAnalyticsSwift */; };
@@ -54,6 +59,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		16024D852A2A489B00DC8FD5 /* Extension + View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension + View.swift"; sourceTree = "<group>"; };
+		16024D872A2A4A3200DC8FD5 /* UserInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoView.swift; sourceTree = "<group>"; };
+		16024D8B2A2A4AC900DC8FD5 /* AgeSelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AgeSelectionView.swift; sourceTree = "<group>"; };
+		16024D8D2A2A4AE300DC8FD5 /* HeightSelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeightSelectionView.swift; sourceTree = "<group>"; };
+		16024D8F2A2A4AF500DC8FD5 /* WeightSelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeightSelectionView.swift; sourceTree = "<group>"; };
 		166C30132A1761B700969465 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		169303672A1285B200CB6077 /* RegistrationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationView.swift; sourceTree = "<group>"; };
 		16ABB0422A082B29002B9076 /* Challenge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Challenge.swift; sourceTree = "<group>"; };
@@ -113,9 +123,38 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		16024D842A2A486600DC8FD5 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				16024D852A2A489B00DC8FD5 /* Extension + View.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
+		16024D892A2A4A9C00DC8FD5 /* UserInfoView */ = {
+			isa = PBXGroup;
+			children = (
+				16024D8A2A2A4AA900DC8FD5 /* SelectionView */,
+				16024D872A2A4A3200DC8FD5 /* UserInfoView.swift */,
+			);
+			path = UserInfoView;
+			sourceTree = "<group>";
+		};
+		16024D8A2A2A4AA900DC8FD5 /* SelectionView */ = {
+			isa = PBXGroup;
+			children = (
+				16024D8B2A2A4AC900DC8FD5 /* AgeSelectionView.swift */,
+				16024D8D2A2A4AE300DC8FD5 /* HeightSelectionView.swift */,
+				16024D8F2A2A4AF500DC8FD5 /* WeightSelectionView.swift */,
+			);
+			path = SelectionView;
+			sourceTree = "<group>";
+		};
 		169303662A12858700CB6077 /* RegistrationScreen */ = {
 			isa = PBXGroup;
 			children = (
+				16024D892A2A4A9C00DC8FD5 /* UserInfoView */,
+				16ABB04C2A090517002B9076 /* InfoView.swift */,
 				169303672A1285B200CB6077 /* RegistrationView.swift */,
 			);
 			path = RegistrationScreen;
@@ -148,17 +187,16 @@
 		16CB40772A07E62E00650EEA /* ZapFitness */ = {
 			isa = PBXGroup;
 			children = (
+				16024D842A2A486600DC8FD5 /* Extension */,
 				169303662A12858700CB6077 /* RegistrationScreen */,
 				16CB409C2A07F8FE00650EEA /* MainScreen */,
 				16CB408B2A07F40000650EEA /* Info.plist */,
 				16B118A12A175D5E00D42AD6 /* GoogleService-Info.plist */,
 				16CB408C2A07F51800650EEA /* Fonts */,
-				16CB40882A07EFC800650EEA /* TabBar */,
 				16CB40782A07E62E00650EEA /* ZapFitnessApp.swift */,
 				16CB407A2A07E62E00650EEA /* ContentView.swift */,
 				16CB407C2A07E63000650EEA /* Assets.xcassets */,
 				16CB407E2A07E63000650EEA /* Preview Content */,
-				16ABB04C2A090517002B9076 /* InfoView.swift */,
 				166C30132A1761B700969465 /* AppDelegate.swift */,
 			);
 			path = ZapFitness;
@@ -193,6 +231,7 @@
 		16CB409C2A07F8FE00650EEA /* MainScreen */ = {
 			isa = PBXGroup;
 			children = (
+				16CB40882A07EFC800650EEA /* TabBar */,
 				16ABB0472A089CE7002B9076 /* Charts */,
 				16CB409D2A07F93200650EEA /* TotalAll.swift */,
 				16ABB0422A082B29002B9076 /* Challenge.swift */,
@@ -312,11 +351,16 @@
 				16ABB0462A082EB1002B9076 /* MainScreen.swift in Sources */,
 				16ABB04B2A08FE7E002B9076 /* ProfileMainView.swift in Sources */,
 				16CB407B2A07E62E00650EEA /* ContentView.swift in Sources */,
+				16024D862A2A489B00DC8FD5 /* Extension + View.swift in Sources */,
+				16024D902A2A4AF500DC8FD5 /* WeightSelectionView.swift in Sources */,
+				16024D8C2A2A4AC900DC8FD5 /* AgeSelectionView.swift in Sources */,
 				16CB40872A07EFBE00650EEA /* CustomTabBar.swift in Sources */,
 				16ABB0492A089D05002B9076 /* ChartSteps.swift in Sources */,
 				16CB409E2A07F93200650EEA /* TotalAll.swift in Sources */,
 				16CB40792A07E62E00650EEA /* ZapFitnessApp.swift in Sources */,
+				16024D8E2A2A4AE300DC8FD5 /* HeightSelectionView.swift in Sources */,
 				16ABB04D2A090517002B9076 /* InfoView.swift in Sources */,
+				16024D882A2A4A3200DC8FD5 /* UserInfoView.swift in Sources */,
 				16ABB0432A082B29002B9076 /* Challenge.swift in Sources */,
 				169303682A1285B200CB6077 /* RegistrationView.swift in Sources */,
 			);
